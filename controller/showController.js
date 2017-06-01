@@ -7,7 +7,6 @@ exports.updateVideo = function (videos, callback) {
     var doUpdate = function(videoStr,cb01){
         //console.info(videoStr);
         var video = JSON.parse(videoStr);
-        //TODO：更新单个视频
         showManger.updateVideo(video,cb01);
         // cb01(null,"ok")
     };
