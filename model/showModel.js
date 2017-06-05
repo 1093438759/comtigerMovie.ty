@@ -5,25 +5,27 @@
 //插入数据库mongodb
 
 var mongoose = require("mongoose");
-var db = mongoose.connect("mongodb://127.0.0.1:27017/doc");
+var config = require("../config");
+var db = mongoose.connect(config.url);
 var collectionName = "video";
 var TestSchema = new mongoose.Schema({
-        title: {type: String},
-        vid: {type: String},
-        episodes: {type: Number},
-        fixupdate: {type: String},
-        severalEpisodes: {type: String},
-        director: {type: String},
-        acts: {type: Array},
-        act: {type: String},
-        type: {type: String},
-        catalog: {type: Array},
-        area1: {type: String},
-        year: {type: String},
-        score: {type: Number},
-        pv: {type: Number},
-        content: {type: String},
-        platform: {type: String},
+        title: {type: String},                          //视频名字
+        vid: {type: String},                            //视频ID
+        episodes: {type: Number},                       //集数
+        fixupdate: {type: String},                      //更新进度
+        severalEpisodes: {type: Number},                //更新至几级
+        director: {type: String},                       //导演
+        acts: {type: Array},                            //主演
+        type: {type: String},                           //分类(电视剧，电影..)
+        catalog: {type: Array},                         //类型(偶像，古装..)
+        area: {type: String},                           //那地拍摄
+        year: {type: Number},                           //哪一年出的
+        date:{type:String},                             //具体月日时间
+        score: {type: Number},                          //评分
+        pv: {type: Number},                             //播放量
+        content: {type: String},                        //视频简介
+        platform: {type: String},                       //平台
+        updateTime: {type: Date, default: Date.now},   //更新时间
     },
     {
         collection: collectionName
@@ -58,8 +60,7 @@ exports.findID = function (platform, callback) {
             console.info(err)
         } else {
             callback(null, result)
-        }
-        ;
+        };
     });
 }
 

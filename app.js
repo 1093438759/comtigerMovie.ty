@@ -9,7 +9,6 @@ var index = require("./routes/index");
 var users = require("./routes/users");
 var tv = require("./routes/tv");
 
-
 var app = express();
 
 // view engine setup
