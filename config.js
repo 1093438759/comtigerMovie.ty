@@ -9,4 +9,5 @@ var config ={
     discussCollection:"discuss",
 }
 
+
 module.exports=config;
