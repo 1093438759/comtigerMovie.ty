@@ -3,17 +3,17 @@
  */
 
 //插入数据库mongodb
-
-var mongoose = require("mongoose");
 var config = require("../config");
+var mongoose = require(config.mongoose);
 var db = mongoose.connect(config.url);
-var collectionName = "video";
+var collectionName = config.collectionName;
 var TestSchema = new mongoose.Schema({
         title: {type: String},                          //视频名字
         vid: {type: String},                            //视频ID
         episodes: {type: Number},                       //集数
         fixupdate: {type: String},                      //更新进度
         severalEpisodes: {type: Number},                //更新至几级
+        eachIntroduce:{type:Object},                    //每集简介
         director: {type: String},                       //导演
         acts: {type: Array},                            //主演
         type: {type: String},                           //分类(电视剧，电影..)
@@ -47,7 +47,7 @@ exports.updateVideo = function (data, cb01) {
             console.log("插入成功");
         }
         console.log("error :" + err);
-        cb01(err, doc)
+       // cb01(err, doc)
     });
 }
 
