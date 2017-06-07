@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json({limit: "20mb"}));
 app.use(bodyParser.urlencoded({limit: "50mb", extended: true }));
 
-app.use(bodyParser({keepExtensions: true, uploadDir: '/tmp'}));
+//app.use(bodyParser({keepExtensions: true, uploadDir: '/tmp'}));
 app.use("/", index);
 app.use("/users", users);
 app.use("/tv", tv);
