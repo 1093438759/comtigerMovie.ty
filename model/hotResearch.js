@@ -9,9 +9,9 @@ var collectionName = config.topSearchCollection;
 var TestSchema = new mongoose.Schema(
     {
         title: {type: String},
-        rank: {type: String},
+        rank: {type: Number},
         url: {type: String},
-        readAmount: {type: String},
+        readAmount: {type: Number},
         type: {type: Number},
         platform: {type: String},
         updateTime: {type: Date, required: true, default: Date.now},  //更新时间
@@ -21,6 +21,7 @@ var TestSchema = new mongoose.Schema(
         collection: collectionName
     }
 );
+
 var manager = db.model(collectionName, TestSchema);
 
 exports.save = function (data, callback) {
