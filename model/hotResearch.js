@@ -31,14 +31,15 @@ exports.findOne = function (where, callback) {
     manager.findOne(where, callback);
 };
 
+
 exports.updateSome = function (update, callback) {
-     update.updateTime = new Date().toLocaleString();
-    var where = {title: update.title,platform:update.platform};
-    manager.updateOne(where, update,{upsert: true}, function (err, result) {
+    update.updateTime = new Date().toLocaleString();
+    var monInsert = new manager(update)
+    monInsert.save(function (err,result) {
         if (err) {
             console.log(err);
         } else {
-            console.log("插入成功");
+            console.log('成功插入数据');
             callback(null, result);
         }
     });
