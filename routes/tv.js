@@ -2,6 +2,7 @@ var express = require("express");
 var url = require("url");
 var router = express.Router();
 var showController = require('../controller/showController');
+var topSearchControll = require('../controller/topSearchControll');
 router.post("/updateVideo", function (req, res) {
     console.log("执行post方法")
     var videos = req.body;
@@ -47,7 +48,6 @@ router.post("/updateDiscuss", function (req, res) {
     })
 });
 
-
 router.get("/findID", function (req, res) {
     console.info("执行了get方法");
     var params = url.parse(req.url, true).query;//req.query.terrace
@@ -59,6 +59,27 @@ router.get("/findID", function (req, res) {
         } else
             return res.send(result);
     });
+});
+
+router.post("/updateTopSearch", function (req, res) {
+    console.info("执行了post方法");
+    var topSearch = req.body;
+    topSearchControll.updateSome(topSearch, function (err, result) {
+        if (!err) {
+            return res.send(
+                {
+                    result: result,
+                }
+            );
+        } else {
+            return res.send(
+                {
+                    message: err,
+                }
+            );
+        }
+
+    })
 });
 
 

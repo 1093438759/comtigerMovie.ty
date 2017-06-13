@@ -13,7 +13,7 @@ var TestSchema = new mongoose.Schema({
         episodes: {type: Number},                       //集数
         fixupdate: {type: String},                      //更新进度
         severalEpisodes: {type: Number},                //更新至几级
-        eachIntroduce:{type:Object},                    //每集简介
+        eachIntroduce:{type:Array},                     //每集简介
         director: {type: String},                       //导演
         acts: {type: Array},                            //主演
         type: {type: String},                           //分类(电视剧，电影..)
@@ -37,9 +37,9 @@ var TestModel = db.model(collectionName, TestSchema); //"TV"相当于collection
  * @param terraceName
  * @param callback
  */
-exports.updateVideo = function (data, cb01) {
+exports.updateVideo = function (data) {
     var where = {platform: data.platform, vid: data.vid};
-    TestModel.updateOne(where, data, {upsert: true}, function (err, doc) {
+    TestModel.updateOne(where, data, {upsert: true}, function (err) {
         if (err) {
             console.log("error :" + err);
         } else {
@@ -54,7 +54,7 @@ exports.updateVideo = function (data, cb01) {
 
 exports.findID = function (platform, callback) {
     var condition = {platform: platform};
-    var condition1 = {vid: 1};
+    var condition1 = {vid:true,"eachIntroduce.eachID":true};
     TestModel.find(condition, condition1, function (err, result) {
         if (err) {
             console.info(err)

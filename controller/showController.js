@@ -5,11 +5,11 @@ var async = require("async");
 var showManger = require("../model/showModel");
 var discussManger = require("../model/updateDiscuss");
 exports.updateVideo = function (videos, callback) {
-    var doUpdate = function (videoStr,cb01) {
-        //console.info(videoStr);
-        var video = JSON.parse(videoStr);
+    var doUpdate = function (videos,cb01) {
+       // console.info(videoStr);
+        var video = JSON.parse(videos);
         showManger.updateVideo(video,cb01);
-         cb01(null,"ok")
+        cb01(null,"ok")
     };
     async.eachSeries(videos,doUpdate, function (error, results) {
         callback(error, results)
