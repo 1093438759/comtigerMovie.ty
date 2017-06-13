@@ -7,7 +7,7 @@ var config ={
     mongoose:"mongoose",
     collectionName:"video",
     discussCollection:"discuss",
+    topSearchCollection:"topSearch",
 }
-
 
 module.exports=config;

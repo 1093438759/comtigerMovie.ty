@@ -18,16 +18,12 @@ app.set("view engine", "jade");
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 app.use(logger("dev"));
-app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({extended: true}));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
-
-
+//app.use(bodyParser.json());
 app.use(bodyParser.json({limit: "20mb"}));
 app.use(bodyParser.urlencoded({limit: "50mb", extended: true }));
-
-//app.use(bodyParser({keepExtensions: true, uploadDir: '/tmp'}));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
+app.use(bodyParser({keepExtensions: true, uploadDir: '/tmp'}));
 app.use("/", index);
 app.use("/users", users);
 app.use("/tv", tv);
