@@ -8,6 +8,7 @@ var config ={
     collectionName:"video",
     discussCollection:"discuss",
     topSearchCollection:"topSearch",
+    guDuoCollection:"guDuo",
 }
 
 module.exports=config;

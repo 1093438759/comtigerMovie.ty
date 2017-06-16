@@ -35,7 +35,7 @@ exports.findOne = function (where, callback) {
 
 exports.updateSome = function (update, callback) {
     update.updateTime = new Date().toLocaleString();
-    var monInsert = new manager(update)
+    var monInsert = new manager(update);
     monInsert.save(function (err,result) {
         if (err) {
             console.log(err);
