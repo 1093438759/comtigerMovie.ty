@@ -9,6 +9,7 @@ var config ={
     discussCollection:"discuss",
     topSearchCollection:"topSearch",
     guDuoCollection:"guDuo",
+    BaixsCollection:"Baixs",
 }
 
 module.exports=config;

@@ -6,7 +6,6 @@
 var config = require("../config");
 var mongoose = require(config.mongoose);
 var db = mongoose.connect(config.url);
-var async = require('async');
 var collectionName = config.guDuoCollection;
 var TestSchema = new mongoose.Schema(
     {
@@ -28,14 +27,12 @@ var TestSchema = new mongoose.Schema(
 
 var manager = db.model(collectionName, TestSchema);
 
-
-exports.insert=function (data,callback) {
+exports.insert = function (data, callback) {
     var insert = new manager(data);
     insert.save(function (err) {
         if (err) {
             console.log(err);
         } else {
-           // console.log('成功插入数据');
             callback(err);
         }
     })
