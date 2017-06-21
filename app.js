@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 var multer = require('multer');
 var index = require("./routes/index");
 var users = require("./routes/users");
+var star=require("./routes/star");
 var tv = require("./routes/tv");
 
 var app = express();
@@ -27,6 +28,7 @@ app.use(bodyParser({keepExtensions: true, uploadDir: '/tmp'}));
 app.use("/", index);
 app.use("/users", users);
 app.use("/tv", tv);
+app.use("/star", star);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

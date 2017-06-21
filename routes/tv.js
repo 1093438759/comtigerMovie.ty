@@ -3,8 +3,6 @@ var url = require("url");
 var router = express.Router();
 var showController = require('../controller/showController');
 var topSearchControll = require('../controller/topSearchControll');
-var baixsModel = require('../model/BaixsModel');
-var starControll = require("../controller/starControll");
 router.post("/updateVideo", function (req, res) {
     console.log("执行post方法")
     var videos = req.body;
@@ -83,49 +81,5 @@ router.post("/updateTopSearch", function (req, res) {
 
     })
 });
-
-/**
- * 骨朵
- */
-router.post("/duoBai", function (req, res) {
-    var updata = req.body;
-    starControll.updateStar(updata, function (err,result) {
-        if (err) {
-            return res.send(
-                {
-                    result:err,
-                }
-            );
-        } else {
-            return res.send(
-                {
-                    result: result,
-                }
-            );
-        }
-    })
-
-});
-
-router.post("/insertBai", function (req, res) {
-    var data = req.body;
-    baixsModel.insert(data, function (err) {
-        if (!err) {
-            return res.send(
-                {
-                    result: "ok",
-                }
-            );
-        } else {
-            return res.send(
-                {
-                    message: err,
-                }
-            );
-        }
-
-    })
-})
-
 
 module.exports = router;
