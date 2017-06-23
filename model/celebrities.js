@@ -20,7 +20,7 @@ var celebritiesSchema = new Schema(
         deathYear: Number,// 死 年
         deathMonth: Number,//死 月
         deathDay: Number,//死 日
-        introduce: String,
+        introduce: String, //简介
 
 
         gender: String,//性别
@@ -37,7 +37,7 @@ var celebritiesSchema = new Schema(
         filmographies: [],// 作品
         section: [],//职务
         sectionEn: [],//职务 英文
-        awards: [],
+        awards: [],   //获奖情况
         sns: [//社交账号
             {
                 name: String,//website\ weibo\ weixin qq\facebook\twitter
@@ -76,11 +76,8 @@ var celebritiesSchema = new Schema(
 
         weight: String,         //体重
         school: String,         //毕业院校
-        brokeragefirm: String,  //经纪公司
-        introduction: String,   //演员或者导演简介
-        birthday: Date,         //出生年月
-        awards: String,         //获奖情况
-        nation: String          //名族
+        agent: String,          //经纪公司
+        nation: String          //民族
     },
     {
         collection: 'm_celebrities'
