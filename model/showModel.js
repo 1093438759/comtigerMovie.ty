@@ -20,6 +20,7 @@ var TestSchema = new mongoose.Schema({
         catalog: {type: Array},                         //类型(偶像，古装..)
         area: {type: String},                           //那地拍摄
         year: {type: Number},                           //哪一年出的
+        year:{type:Array},
         date:{type:String},                             //具体月日时间
         score: {type: Number},                          //评分
         pv: {type: Number},                             //播放量
