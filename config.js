@@ -11,6 +11,7 @@ var config ={
     /*guDuoCollection:"guDuo",
     BaixsCollection:"Baixs",*/
     fictionsCollection:"f_fictions",
+    attentionCollection:"attention",
 }
 
 module.exports=config;
