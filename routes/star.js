@@ -6,7 +6,8 @@ var express = require("express");
 var url = require("url");
 var router = express.Router();
 var starControll = require("../controller/starControll");
-var weiboFollows = require("../model/weiboFollows")
+var weiboFollows = require("../model/weiboFollows");
+var baiDuTieBa = require("../model/baiDuTieBa");
 
 /**
  * 骨朵和百晓生
@@ -110,17 +111,15 @@ router.get("/aStar", function (req, res) {
     })
 });
 
-/**
- * 查询4个账号所有未被关注的明星
- */
-router.get("/fourAllNoAttentionStar", function (req, res) {
-
-    weiboFollows.fourFindAllBySid(function (err, result) {
+router.post("/baiDu", function (req, res) {
+    var update =req.body;
+        baiDuTieBa.insert(update,function (err, result) {
         if (err) {
             return res.send(err);
         } else
             return res.send(result);
     })
 });
+
 
 module.exports = router;

@@ -12,6 +12,7 @@ var config ={
     BaixsCollection:"Baixs",*/
     fictionsCollection:"f_fictions",
     attentionCollection:"attention",
+    baiDu:"baiDuPostBar",
 }
 
 module.exports=config;

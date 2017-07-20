@@ -183,7 +183,6 @@ exports.tenFindAllBySid = function (cabllback) {
     })
 }
 
-
 /**
  *查询全部uid
  * @param cabllback
@@ -198,17 +197,4 @@ exports.FindAllBySid = function (record,cabllback) {
             cabllback(null, result);
     })
 }
-/**
- *4个账号  获得所有未被关注的id
- * @param cabllback
- */
-exports.fourFindAllBySid = function (cabllback) {
-    var where = {attention_4: false};
-    var res = {uid: 1,_id:0};
-    celebritiesManager.find(where,res, function (err, result) {
-        if (err)
-            console.log(err);
-        else
-            cabllback(null, result);
-    })
-}
+
