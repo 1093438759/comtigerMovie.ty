@@ -103,7 +103,7 @@ router.get("/tenAllNoAttentionStar", function (req, res) {
 router.get("/aStar", function (req, res) {
     var params = url.parse(req.url, true).query;//req.query.terrace
     var record = (params.record);
-    weiboFollows.FindAllBySid(record,function (err, result) {
+    weiboFollows.FindAllBySid(record, function (err, result) {
         if (err) {
             return res.send(err);
         } else
@@ -112,8 +112,8 @@ router.get("/aStar", function (req, res) {
 });
 
 router.post("/baiDu", function (req, res) {
-    var update =req.body;
-        baiDuTieBa.insert(update,function (err, result) {
+    var update = req.body;
+    baiDuTieBa.insert(update, function (err, result) {
         if (err) {
             return res.send(err);
         } else

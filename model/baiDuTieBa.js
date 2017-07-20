@@ -10,7 +10,7 @@ var Schema = new mongoose.Schema(
     {
         name: String,          //艺人名字
         id:String,             //艺人id
-        address: String,       //网址
+        url: String,           //网址
         attention: Number,     //关注量
         numberPosts: Number,   //帖子数
 
@@ -23,7 +23,6 @@ var baiDuManager = db.model(collection, Schema);
 
 
 exports.insert = function (update, callback) {
-    console.log(update);
     var where = {name: update.name};
     baiDuManager.update(where, update, {upsert: true}, callback);
 };
